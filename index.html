@@ -1,292 +1,365 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<script src="./support.js"></script>
-</head>
-<body>
-<x-dc>
-<helmet>
+<title>Irene Rodríguez Peña — Translator & Localisation Specialist</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&amp;family=EB+Garamond:ital,wght@0,400;0,500;1,400&amp;family=IBM+Plex+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   * { box-sizing: border-box; }
   html { scroll-behavior: smooth; }
   body { margin: 0; background: #F2ECDD; color: #2F2C27; font-family: 'EB Garamond', Georgia, serif; -webkit-font-smoothing: antialiased; }
   ::selection { background: #2F2C27; color: #F2ECDD; }
+  a { color: inherit; }
+
+  .wrap { background:#F2ECDD; color:#2F2C27; min-height:100vh; overflow-x:hidden; }
+  header.site { position:sticky; top:0; z-index:30; background:rgba(242,236,221,0.82); backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px); border-bottom:1px solid rgba(47,44,39,0.12); }
+  .header-inner { max-width:1120px; margin:0 auto; padding:0 32px; height:62px; display:flex; align-items:center; justify-content:space-between; gap:24px; }
+  .brand { font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:0.22em; text-transform:uppercase; color:#2F2C27; text-decoration:none; white-space:nowrap; }
+  nav.main { display:flex; align-items:center; gap:26px; }
+  nav.main a { font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:0.16em; text-transform:uppercase; color:#6b6457; text-decoration:none; transition:color .2s ease; }
+  nav.main a:hover { color:#8C4A38; }
+  .divider-v { width:1px; height:18px; background:rgba(47,44,39,0.18); }
+  .langswitch { display:flex; align-items:center; gap:8px; font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:0.1em; }
+  .langswitch button { background:none; border:none; cursor:pointer; padding:2px; font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:0.1em; border-bottom:1px solid transparent; color:#a39a87; }
+  .langswitch button.active { color:#2F2C27; border-bottom:1px solid #8C4A38; }
+
+  main { max-width:1120px; margin:0 auto; padding:0 32px; }
+
+  .hero { display:grid; grid-template-columns:1.5fr 0.5fr; gap:40px; align-items:center; padding:64px 72px 88px 0; }
+  .eyebrow-row { display:flex; align-items:center; gap:12px; margin-bottom:26px; }
+  .eyebrow-line { width:34px; height:1px; background:#8C4A38; }
+  .eyebrow { font-family:'IBM Plex Mono',monospace; font-size:11.5px; letter-spacing:0.2em; text-transform:uppercase; color:#8C4A38; }
+  h1.name { font-family:'Cormorant Garamond',serif; font-weight:500; font-size:clamp(30px,5.6vw,78px); line-height:1.0; letter-spacing:-0.015em; margin:0; color:#2F2C27; }
+  .bio { font-family:'EB Garamond',serif; font-style:italic; font-size:clamp(15px,1.7vw,22px); line-height:1.45; color:#5f594e; margin:28px 0 0; }
+  .cta-row { display:flex; align-items:center; flex-wrap:wrap; gap:14px; margin-top:38px; }
+  .btn-solid { display:inline-flex; align-items:center; gap:10px; background:#2F2C27; color:#F2ECDD; text-decoration:none; padding:13px 24px; font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:0.14em; text-transform:uppercase; border-radius:2px; transition:background .25s ease,transform .25s ease; }
+  .btn-solid:hover { background:#8C4A38; transform:translateY(-1px); }
+  .btn-outline { display:inline-flex; align-items:center; gap:10px; border:1px solid rgba(47,44,39,0.45); color:#2F2C27; text-decoration:none; padding:13px 24px; font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:0.14em; text-transform:uppercase; border-radius:2px; transition:border-color .25s ease,color .25s ease; }
+  .btn-outline:hover { border-color:#8C4A38; color:#8C4A38; }
+  .portrait { position:relative; width:188px; justify-self:end; }
+  .portrait .frame { position:absolute; inset:11px -11px -11px 11px; border:1px solid rgba(47,44,39,0.3); border-radius:4px; }
+  .portrait img { position:relative; width:100%; aspect-ratio:1/1; object-fit:cover; border-radius:4px; display:block; filter:saturate(0.92) contrast(1.02); }
+
+  section.block { padding:62px 0; scroll-margin-top:80px; border-top:1px solid rgba(47,44,39,0.16); }
+  .sec-head { display:flex; align-items:center; gap:18px; margin-bottom:44px; }
+  .sec-num { font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:0.1em; color:#8C4A38; }
+  .sec-label { font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:0.22em; text-transform:uppercase; color:#5f594e; }
+  .sec-rule { flex:1; height:1px; background:rgba(47,44,39,0.16); }
+
+  .about-grid { display:grid; grid-template-columns:1fr 1.15fr; gap:56px; align-items:start; }
+  .about-lead { font-family:'Cormorant Garamond',serif; font-weight:500; font-size:clamp(28px,3.2vw,40px); line-height:1.15; letter-spacing:-0.01em; margin:0; color:#2F2C27; }
+  .about-body { font-family:'EB Garamond',serif; font-size:18.5px; line-height:1.75; color:#4a463e; margin:0; max-width:58ch; text-align:justify; }
+
+  .row { display:grid; grid-template-columns:160px 1fr; gap:28px; padding:24px 10px; border-top:1px solid rgba(47,44,39,0.14); transition:background .25s ease; }
+  .row:hover { background:rgba(47,44,39,0.035); }
+  .row .date { font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:0.04em; color:#897f6e; padding-top:8px; }
+  .row .title { font-family:'Cormorant Garamond',serif; font-weight:500; font-size:25px; line-height:1.18; color:#2F2C27; }
+  .row .org { font-family:'IBM Plex Mono',monospace; font-size:11.5px; letter-spacing:0.1em; text-transform:uppercase; color:#897f6e; margin-top:8px; }
+
+  .skills-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:44px; }
+  .skill-group { border-top:2px solid #2F2C27; padding-top:18px; }
+  .skill-group .label { font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:0.16em; text-transform:uppercase; color:#8C4A38; margin-bottom:18px; }
+  .skill-items { display:flex; flex-direction:column; gap:11px; }
+  .skill-items div { font-family:'EB Garamond',serif; font-size:19px; color:#3a3730; line-height:1.2; }
+
+  .langs-grid { display:grid; grid-template-columns:1fr 1fr; gap:36px 64px; }
+  .lang-top { display:flex; align-items:baseline; justify-content:space-between; gap:16px; margin-bottom:14px; }
+  .lang-name { font-family:'Cormorant Garamond',serif; font-weight:500; font-size:30px; color:#2F2C27; }
+  .lang-level { font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:0.14em; text-transform:uppercase; color:#897f6e; }
+  .lang-bar { height:2px; background:rgba(47,44,39,0.14); position:relative; }
+  .lang-bar > div { position:absolute; left:0; top:0; height:2px; background:#8C4A38; }
+
+  .contact-grid { display:grid; grid-template-columns:1fr 0.9fr; gap:56px; align-items:start; }
+  .contact-heading { font-family:'Cormorant Garamond',serif; font-weight:500; font-size:clamp(38px,4.6vw,60px); line-height:1.04; letter-spacing:-0.01em; margin:0; color:#2F2C27; }
+  .contact-sub { font-family:'EB Garamond',serif; font-style:italic; font-size:20px; line-height:1.5; color:#5f594e; margin:22px 0 0; max-width:34ch; }
+  .contact-list a { display:block; padding:18px 0; border-top:1px solid rgba(47,44,39,0.16); text-decoration:none; transition:padding-left .25s ease; }
+  .contact-list a:last-child { border-bottom:1px solid rgba(47,44,39,0.16); }
+  .contact-list a:hover { padding-left:8px; }
+  .contact-list .k { font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:0.16em; text-transform:uppercase; color:#897f6e; margin-bottom:6px; }
+  .contact-list .v { font-family:'EB Garamond',serif; font-size:21px; color:#2F2C27; }
+
+  footer.site { display:flex; align-items:center; justify-content:space-between; gap:16px; padding:30px 0 48px; border-top:1px solid rgba(47,44,39,0.16); font-family:'IBM Plex Mono',monospace; font-size:11px; letter-spacing:0.1em; text-transform:uppercase; color:#897f6e; }
+
+  @media (max-width:860px) {
+    nav.main { gap:14px; }
+    nav.main a { display:none; }
+    .hero { grid-template-columns:1fr; padding:48px 0 60px; }
+    h1.name { white-space:normal; }
+    .bio { white-space:normal; }
+    .portrait { justify-self:start; margin-top:24px; }
+    .about-grid, .skills-grid, .langs-grid, .contact-grid { grid-template-columns:1fr; gap:28px; }
+    .row { grid-template-columns:1fr; gap:6px; }
+  }
 </style>
-</helmet>
+</head>
+<body>
+<div class="wrap">
 
-<div style="background:#F2ECDD;color:#2F2C27;min-height:100vh;overflow-x:hidden">
-
-  <header style="position:sticky;top:0;z-index:30;background:rgba(242,236,221,0.82);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid rgba(47,44,39,0.12)">
-    <div style="max-width:1120px;margin:0 auto;padding:0 32px;height:62px;display:flex;align-items:center;justify-content:space-between;gap:24px">
-      <a href="#top" style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.22em;text-transform:uppercase;color:#2F2C27;text-decoration:none;white-space:nowrap">Irene R. P.</a>
-      <nav style="display:flex;align-items:center;gap:26px">
-        <a href="#about" style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:#6b6457;text-decoration:none;transition:color .2s ease" style-hover="color:#8C4A38">{{ secAbout }}</a>
-        <a href="#experience" style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:#6b6457;text-decoration:none;transition:color .2s ease" style-hover="color:#8C4A38">{{ secExp }}</a>
-        <a href="#education" style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:#6b6457;text-decoration:none;transition:color .2s ease" style-hover="color:#8C4A38">{{ secEdu }}</a>
-        <a href="#skills" style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:#6b6457;text-decoration:none;transition:color .2s ease" style-hover="color:#8C4A38">{{ secSkills }}</a>
-        <a href="#contact" style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:#6b6457;text-decoration:none;transition:color .2s ease" style-hover="color:#8C4A38">{{ secContact }}</a>
-        <span style="width:1px;height:18px;background:rgba(47,44,39,0.18)"></span>
-        <div style="display:flex;align-items:center;gap:8px;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.1em">
-          <button onClick="{{ setEN }}" style="{{ enBtnStyle }}">EN</button>
+  <header class="site">
+    <div class="header-inner">
+      <a href="#top" class="brand">Irene R. P.</a>
+      <nav class="main">
+        <a href="#about" data-i="secAbout"></a>
+        <a href="#experience" data-i="secExp"></a>
+        <a href="#education" data-i="secEdu"></a>
+        <a href="#skills" data-i="secSkills"></a>
+        <a href="#contact" data-i="secContact"></a>
+        <span class="divider-v"></span>
+        <div class="langswitch">
+          <button id="btnEN" onclick="setLang('en')">EN</button>
           <span style="color:rgba(47,44,39,0.3)">/</span>
-          <button onClick="{{ setES }}" style="{{ esBtnStyle }}">ES</button>
+          <button id="btnES" onclick="setLang('es')">ES</button>
         </div>
       </nav>
     </div>
   </header>
 
-  <main id="top" style="max-width:1120px;margin:0 auto;padding:0 32px">
+  <main id="top">
 
-    <section style="display:grid;grid-template-columns:1.5fr 0.5fr;gap:40px;align-items:center;padding:64px 72px 88px 0">
+    <section class="hero">
       <div>
-        <div style="display:flex;align-items:center;gap:12px;margin-bottom:26px">
-          <span style="width:34px;height:1px;background:#8C4A38"></span>
-          <span style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:0.2em;text-transform:uppercase;color:#8C4A38">{{ eyebrow }}</span>
+        <div class="eyebrow-row">
+          <span class="eyebrow-line"></span>
+          <span class="eyebrow" data-i="eyebrow"></span>
         </div>
-        <h1 style="font-family: 'Cormorant Garamond',serif; font-weight: 500; font-size: clamp(30px,5.6vw,78px); line-height: 1.0; letter-spacing: -0.015em; margin: 0; color: #2F2C27; white-space: nowrap">Irene Rodríguez Peña</h1>
-        <p style="font-family:'EB Garamond',serif;font-style:italic;font-size:clamp(15px,1.7vw,22px);line-height:1.45;color:#5f594e;margin:28px 0 0;white-space:nowrap">{{ bio }}</p>
-        <div style="display:flex;align-items:center;flex-wrap:wrap;gap:14px;margin-top:38px">
-          <a href="#contact" style="display:inline-flex;align-items:center;gap:10px;background:#2F2C27;color:#F2ECDD;text-decoration:none;padding:13px 24px;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;border-radius:2px;transition:background .25s ease,transform .25s ease" style-hover="background:#8C4A38;transform:translateY(-1px)">{{ ctaContact }}</a>
-          <a href="uploads/cv.pdf" target="_blank" style="display:inline-flex;align-items:center;gap:10px;border:1px solid rgba(47,44,39,0.45);color:#2F2C27;text-decoration:none;padding:13px 24px;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;border-radius:2px;transition:border-color .25s ease,color .25s ease" style-hover="border-color:#8C4A38;color:#8C4A38">{{ ctaCV }} ↓</a>
+        <h1 class="name">Irene Rodríguez Peña</h1>
+        <p class="bio" data-i="bio"></p>
+        <div class="cta-row">
+          <a href="#contact" class="btn-solid" data-i="ctaContact"></a>
+          <a href="cv.pdf" target="_blank" class="btn-outline"><span data-i="ctaCV"></span> ↓</a>
         </div>
       </div>
-      <div style="position:relative;width:188px;justify-self:end">
-        <div style="position:absolute;inset:11px -11px -11px 11px;border:1px solid rgba(47,44,39,0.3);border-radius:4px"></div>
-        <img src="assets/portrait.jpg" alt="Irene Rodríguez Peña" style="position:relative;width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:4px;display:block;filter:saturate(0.92) contrast(1.02)">
+      <div class="portrait">
+        <div class="frame"></div>
+        <img src="portrait.jpg" alt="Irene Rodríguez Peña" onerror="this.style.display='none'">
       </div>
     </section>
 
-    <section id="about" style="padding:62px 0;scroll-margin-top:80px;border-top:1px solid rgba(47,44,39,0.16)">
-      <div style="display:flex;align-items:center;gap:18px;margin-bottom:44px">
-        <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.1em;color:#8C4A38">01</span>
-        <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.22em;text-transform:uppercase;color:#5f594e">{{ secAbout }}</span>
-        <span style="flex:1;height:1px;background:rgba(47,44,39,0.16)"></span>
+    <section id="about" class="block">
+      <div class="sec-head">
+        <span class="sec-num">01</span>
+        <span class="sec-label" data-i="secAbout"></span>
+        <span class="sec-rule"></span>
       </div>
-      <div style="display:grid;grid-template-columns:1fr 1.15fr;gap:56px;align-items:start">
-        <p style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(28px,3.2vw,40px);line-height:1.15;letter-spacing:-0.01em;margin:0;color:#2F2C27">{{ aboutLead }}</p>
-        <p style="font-family: 'EB Garamond',serif; font-size: 18.5px; line-height: 1.75; color: #4a463e; margin: 0; max-width: 58ch; text-align: justify">{{ aboutBody }}</p>
-      </div>
-    </section>
-
-    <section id="experience" style="padding:62px 0;scroll-margin-top:80px;border-top:1px solid rgba(47,44,39,0.16)">
-      <div style="display:flex;align-items:center;gap:18px;margin-bottom:40px">
-        <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.1em;color:#8C4A38">02</span>
-        <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.22em;text-transform:uppercase;color:#5f594e">{{ secExp }}</span>
-        <span style="flex:1;height:1px;background:rgba(47,44,39,0.16)"></span>
-      </div>
-      <sc-for list="{{ exp }}" as="item" hint-placeholder-count="6">
-        <div style="display:grid;grid-template-columns:160px 1fr;gap:28px;padding:24px 10px;border-top:1px solid rgba(47,44,39,0.14);transition:background .25s ease" style-hover="background:rgba(47,44,39,0.035)">
-          <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.04em;color:#897f6e;padding-top:8px">{{ item.date }}</span>
-          <div>
-            <div style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:25px;line-height:1.18;color:#2F2C27">{{ item.role }}</div>
-            <div style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:0.1em;text-transform:uppercase;color:#897f6e;margin-top:8px">{{ item.org }}</div>
-          </div>
-        </div>
-      </sc-for>
-    </section>
-
-    <section id="education" style="padding:62px 0;scroll-margin-top:80px;border-top:1px solid rgba(47,44,39,0.16)">
-      <div style="display:flex;align-items:center;gap:18px;margin-bottom:40px">
-        <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.1em;color:#8C4A38">03</span>
-        <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.22em;text-transform:uppercase;color:#5f594e">{{ secEdu }}</span>
-        <span style="flex:1;height:1px;background:rgba(47,44,39,0.16)"></span>
-      </div>
-      <sc-for list="{{ edu }}" as="item" hint-placeholder-count="4">
-        <div style="display:grid;grid-template-columns:160px 1fr;gap:28px;padding:24px 10px;border-top:1px solid rgba(47,44,39,0.14);transition:background .25s ease" style-hover="background:rgba(47,44,39,0.035)">
-          <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.04em;color:#897f6e;padding-top:8px">{{ item.date }}</span>
-          <div>
-            <div style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:25px;line-height:1.2;color:#2F2C27">{{ item.deg }}</div>
-            <div style="font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:0.1em;text-transform:uppercase;color:#897f6e;margin-top:8px">{{ item.org }}</div>
-          </div>
-        </div>
-      </sc-for>
-    </section>
-
-    <section id="skills" style="padding:62px 0;scroll-margin-top:80px;border-top:1px solid rgba(47,44,39,0.16)">
-      <div style="display:flex;align-items:center;gap:18px;margin-bottom:44px">
-        <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.1em;color:#8C4A38">04</span>
-        <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.22em;text-transform:uppercase;color:#5f594e">{{ secSkills }}</span>
-        <span style="flex:1;height:1px;background:rgba(47,44,39,0.16)"></span>
-      </div>
-      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:44px">
-        <sc-for list="{{ skills }}" as="group" hint-placeholder-count="3">
-          <div style="border-top:2px solid #2F2C27;padding-top:18px">
-            <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:#8C4A38;margin-bottom:18px">{{ group.label }}</div>
-            <div style="display:flex;flex-direction:column;gap:11px">
-              <sc-for list="{{ group.items }}" as="skill" hint-placeholder-count="4">
-                <div style="font-family:'EB Garamond',serif;font-size:19px;color:#3a3730;line-height:1.2">{{ skill }}</div>
-              </sc-for>
-            </div>
-          </div>
-        </sc-for>
+      <div class="about-grid">
+        <p class="about-lead" data-i="aboutLead"></p>
+        <p class="about-body" data-i="aboutBody"></p>
       </div>
     </section>
 
-    <section id="languages" style="padding:62px 0;scroll-margin-top:80px;border-top:1px solid rgba(47,44,39,0.16)">
-      <div style="display:flex;align-items:center;gap:18px;margin-bottom:44px">
-        <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.1em;color:#8C4A38">05</span>
-        <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.22em;text-transform:uppercase;color:#5f594e">{{ secLangs }}</span>
-        <span style="flex:1;height:1px;background:rgba(47,44,39,0.16)"></span>
+    <section id="experience" class="block">
+      <div class="sec-head">
+        <span class="sec-num">02</span>
+        <span class="sec-label" data-i="secExp"></span>
+        <span class="sec-rule"></span>
       </div>
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:36px 64px">
-        <sc-for list="{{ langs }}" as="lang" hint-placeholder-count="4">
-          <div>
-            <div style="display:flex;align-items:baseline;justify-content:space-between;gap:16px;margin-bottom:14px">
-              <span style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:30px;color:#2F2C27">{{ lang.name }}</span>
-              <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:#897f6e">{{ lang.level }}</span>
-            </div>
-            <div style="height:2px;background:rgba(47,44,39,0.14);position:relative">
-              <div style="position:absolute;left:0;top:0;height:2px;background:#8C4A38;width:{{ lang.pct }}"></div>
-            </div>
-          </div>
-        </sc-for>
-      </div>
+      <div id="exp-list"></div>
     </section>
 
-    <section id="contact" style="padding:72px 0 40px;scroll-margin-top:80px;border-top:1px solid rgba(47,44,39,0.16)">
-      <div style="display:flex;align-items:center;gap:18px;margin-bottom:44px">
-        <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.1em;color:#8C4A38">06</span>
-        <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.22em;text-transform:uppercase;color:#5f594e">{{ secContact }}</span>
-        <span style="flex:1;height:1px;background:rgba(47,44,39,0.16)"></span>
+    <section id="education" class="block">
+      <div class="sec-head">
+        <span class="sec-num">03</span>
+        <span class="sec-label" data-i="secEdu"></span>
+        <span class="sec-rule"></span>
       </div>
-      <div style="display:grid;grid-template-columns:1fr 0.9fr;gap:56px;align-items:start">
+      <div id="edu-list"></div>
+    </section>
+
+    <section id="skills" class="block">
+      <div class="sec-head">
+        <span class="sec-num">04</span>
+        <span class="sec-label" data-i="secSkills"></span>
+        <span class="sec-rule"></span>
+      </div>
+      <div class="skills-grid" id="skills-grid"></div>
+    </section>
+
+    <section id="languages" class="block">
+      <div class="sec-head">
+        <span class="sec-num">05</span>
+        <span class="sec-label" data-i="secLangs"></span>
+        <span class="sec-rule"></span>
+      </div>
+      <div class="langs-grid" id="langs-grid"></div>
+    </section>
+
+    <section id="contact" class="block" style="padding:72px 0 40px;">
+      <div class="sec-head">
+        <span class="sec-num">06</span>
+        <span class="sec-label" data-i="secContact"></span>
+        <span class="sec-rule"></span>
+      </div>
+      <div class="contact-grid">
         <div>
-          <h2 style="font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(38px,4.6vw,60px);line-height:1.04;letter-spacing:-0.01em;margin:0;color:#2F2C27">{{ contactHeading }}</h2>
-          <p style="font-family:'EB Garamond',serif;font-style:italic;font-size:20px;line-height:1.5;color:#5f594e;margin:22px 0 0;max-width:34ch">{{ contactSub }}</p>
-          <a href="/cdn-cgi/l/email-protection#056c776a61776c6270607f75606b7c64456268646c692b666a68" style="display:inline-flex;align-items:center;gap:10px;margin-top:30px;background:#2F2C27;color:#F2ECDD;text-decoration:none;padding:14px 26px;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;border-radius:2px;transition:background .25s ease,transform .25s ease" style-hover="background:#8C4A38;transform:translateY(-1px)">{{ emailCta }} →</a>
+          <h2 class="contact-heading" data-i="contactHeading"></h2>
+          <p class="contact-sub" data-i="contactSub"></p>
+          <a href="mailto:irodriguezpenya@gmail.com" class="btn-solid" style="margin-top:30px;"><span data-i="emailCta"></span> →</a>
         </div>
-        <div style="display:flex;flex-direction:column">
-          <a href="/cdn-cgi/l/email-protection#1f766d707b6d76786a7a656f7a71667e5f78727e7673317c7072" style="display:block;padding:18px 0;border-top:1px solid rgba(47,44,39,0.16);text-decoration:none;transition:padding-left .25s ease" style-hover="padding-left:8px">
-            <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.16em;text-transform:uppercase;color:#897f6e;margin-bottom:6px">{{ emailLabel }}</div>
-            <div style="font-family:'EB Garamond',serif;font-size:21px;color:#2F2C27"><span class="__cf_email__" data-cfemail="432a312c27312a2436263933262d3a2203242e222a2f6d202c2e">[email&#160;protected]</span></div>
+        <div class="contact-list">
+          <a href="mailto:irodriguezpenya@gmail.com">
+            <div class="k" data-i="emailLabel"></div>
+            <div class="v">irodriguezpenya@gmail.com</div>
           </a>
-          <a href="tel:+34688927760" style="display:block;padding:18px 0;border-top:1px solid rgba(47,44,39,0.16);text-decoration:none;transition:padding-left .25s ease" style-hover="padding-left:8px">
-            <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.16em;text-transform:uppercase;color:#897f6e;margin-bottom:6px">{{ phoneLabel }}</div>
-            <div style="font-family:'EB Garamond',serif;font-size:21px;color:#2F2C27">(+34) 688 92 77 60</div>
+          <a href="tel:+34688927760">
+            <div class="k" data-i="phoneLabel"></div>
+            <div class="v">(+34) 688 92 77 60</div>
           </a>
-          <div style="padding:18px 0;border-top:1px solid rgba(47,44,39,0.16)">
-            <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.16em;text-transform:uppercase;color:#897f6e;margin-bottom:6px">{{ locLabel }}</div>
-            <div style="font-family:'EB Garamond',serif;font-size:21px;color:#2F2C27">{{ location }}</div>
-          </div>
-          <a href="https://linkedin.com/in/irene-rodriguez-penya" target="_blank" style="display:block;padding:18px 0;border-top:1px solid rgba(47,44,39,0.16);border-bottom:1px solid rgba(47,44,39,0.16);text-decoration:none;transition:padding-left .25s ease" style-hover="padding-left:8px">
-            <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.16em;text-transform:uppercase;color:#897f6e;margin-bottom:6px">LinkedIn</div>
-            <div style="font-family:'EB Garamond',serif;font-size:21px;color:#2F2C27">in/irene-rodriguez-penya ↗</div>
+          <a href="https://linkedin.com/in/irene-rodriguez-penya" target="_blank">
+            <div class="k">LinkedIn</div>
+            <div class="v">in/irene-rodriguez-penya ↗</div>
           </a>
         </div>
       </div>
     </section>
 
-    <footer style="display:flex;align-items:center;justify-content:space-between;gap:16px;padding:30px 0 48px;border-top:1px solid rgba(47,44,39,0.16);font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:#897f6e">
+    <footer class="site">
       <span>© 2026 Irene Rodríguez Peña</span>
-      <span>{{ location }}</span>
+      <span data-i="location"></span>
     </footer>
 
   </main>
 </div>
-</x-dc>
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script type="text/x-dc" data-dc-script>
-class Component extends DCLogic {
-  state = { lang: "en" };
 
-  content = {
-    en: {
-      secAbout: "About", secExp: "Experience", secEdu: "Education",
-      secSkills: "Skills", secLangs: "Languages", secContact: "Contact",
-      eyebrow: "Translator · Localisation Specialist",
-      bio: "Translator (EN/DE › ES/CA), proofreader, and language teacher.",
-      ctaContact: "Get in touch", ctaCV: "Download CV",
-      aboutLead: "Translation, proofreading and language teaching — Spanish, Catalan, English and German.",
-      aboutBody: "I'm a translator, proofreader and language teacher based in Vienna. My working languages are Spanish, Catalan, English and German. I graduated in Translation and Interpreting from Universitat Pompeu Fabra and have continued my studies in Vienna with an extension curriculum within my master's in Romance Studies — in Language Technologies and Specialist Communication, and in Computer Science.",
-      exp: [
-        { role: "Bookseller", org: "Buchkontor · Vienna", date: "Feb 2026 — Jun 2026" },
-        { role: "AI-Powered Video Translator / Dubber", org: "Vision Education · Vienna", date: "Nov 2025 — Mar 2026" },
-        { role: "Bookseller", org: "Tiempo Nuevo · Vienna", date: "Sep 2025 — Jan 2026" },
-        { role: "Exam Supervisor", org: "Centre for Distance Studies · Vienna", date: "Sep 2025 — Present" },
-        { role: "Spanish Language Teaching Assistant", org: "Vienna Board of Education", date: "Oct 2024 — Jun 2025" },
-        { role: "Translator", org: "Heidelberg University · Heidelberg", date: "Apr 2024 — Jul 2024" },
-        { role: "Language Teaching Assistant", org: "GoStudent", date: "Feb 2023 — Apr 2024" }
-      ],
-      edu: [
-        { deg: "MA Romance Studies — Extension Curriculum in Computer Science", org: "FH Campus Wien · Vienna", date: "Mar 2026 — Present" },
-        { deg: "MA Romance Studies — Language Technologies & Technical Communication", org: "University of Vienna", date: "Oct 2025 — Feb 2026" },
-        { deg: "BA Translation & Interpreting", org: "Universitat Pompeu Fabra · Barcelona", date: "Sep 2020 — Jul 2024" },
-        { deg: "Exchange Semester — Translation & Interpreting", org: "Eberhard Karls Universität Tübingen", date: "Sep 2023 — Feb 2024" }
-      ],
-      skills: [
-        { label: "Localisation & CAT Tools", items: ["MateCat", "MemoQ", "SDL Trados", "Aegisub"] },
-        { label: "AI & Multimedia", items: ["ElevenLabs", "HeyGen", "Rask AI", "Voice Synthesis"] },
-        { label: "Design & UI/UX", items: ["Figma", "Canva", "Adobe Photoshop", "Wireframing", "Prototyping"] }
-      ],
-      langs: [
-        { name: "Spanish", level: "Native", pct: "100%" },
-        { name: "Catalan", level: "Native", pct: "100%" },
-        { name: "English", level: "C1", pct: "86%" },
-        { name: "German", level: "C1", pct: "86%" }
-      ],
-      contactHeading: "Let's work together.",
-      contactSub: "Open to freelance localisation projects and full-time roles.",
-      emailCta: "Email me", emailLabel: "Email", phoneLabel: "Phone", locLabel: "Location",
-      location: "Vienna, Austria"
-    },
-    es: {
-      secAbout: "Sobre mí", secExp: "Experiencia", secEdu: "Formación",
-      secSkills: "Competencias", secLangs: "Idiomas", secContact: "Contacto",
-      eyebrow: "Traductora · Especialista en localización",
-      bio: "Traductora (EN/DE › ES/CA), correctora y profesora de idiomas.",
-      ctaContact: "Contactar", ctaCV: "Descargar CV",
-      aboutLead: "Traducción, corrección y enseñanza de idiomas — español, catalán, inglés y alemán.",
-      aboutBody: "Soy traductora, correctora y profesora de idiomas. Vivo en Viena y mis lenguas de trabajo son el español, el catalán, el inglés y el alemán. Me gradué en Traducción e Interpretación por la Universitat Pompeu Fabra y he continuado mi formación en Viena con una extensión curricular dentro del máster en Filología Hispánica — en Tecnologías del Lenguaje y Comunicación Especializada, y en Informática.",
-      exp: [
-        { role: "Librera", org: "Buchkontor · Viena", date: "Feb 2026 — Jun 2026" },
-        { role: "Traductora y dobladora de vídeo con IA", org: "Vision Education · Viena", date: "Nov 2025 — Mar 2026" },
-        { role: "Librera", org: "Tiempo Nuevo · Viena", date: "Sep 2025 — Ene 2026" },
-        { role: "Supervisora de exámenes", org: "Centro de Estudios a Distancia · Viena", date: "Sep 2025 — Actualidad" },
-        { role: "Auxiliar de conversación de español", org: "Consejo Escolar de Viena", date: "Oct 2024 — Jun 2025" },
-        { role: "Traductora", org: "Universidad de Heidelberg · Heidelberg", date: "Abr 2024 — Jul 2024" },
-        { role: "Profesora de idiomas", org: "GoStudent", date: "Feb 2023 — Abr 2024" }
-      ],
-      edu: [
-        { deg: "Máster en Estudios Románicos — Currículo complementario en Informática", org: "FH Campus Wien · Viena", date: "Mar 2026 — Actualidad" },
-        { deg: "Máster en Estudios Románicos — Tecnologías del Lenguaje y Comunicación Técnica", org: "Universidad de Viena", date: "Oct 2025 — Feb 2026" },
-        { deg: "Grado en Traducción e Interpretación", org: "Universitat Pompeu Fabra · Barcelona", date: "Sep 2020 — Jul 2024" },
-        { deg: "Semestre de intercambio — Traducción e Interpretación", org: "Eberhard Karls Universität Tübingen", date: "Sep 2023 — Feb 2024" }
-      ],
-      skills: [
-        { label: "Localización y herramientas TAO", items: ["MateCat", "MemoQ", "SDL Trados", "Aegisub"] },
-        { label: "IA y multimedia", items: ["ElevenLabs", "HeyGen", "Rask AI", "Síntesis de voz"] },
-        { label: "Diseño y UI/UX", items: ["Figma", "Canva", "Adobe Photoshop", "Wireframing", "Prototipado"] }
-      ],
-      langs: [
-        { name: "Español", level: "Nativo", pct: "100%" },
-        { name: "Catalán", level: "Nativo", pct: "100%" },
-        { name: "Inglés", level: "C1", pct: "86%" },
-        { name: "Alemán", level: "C1", pct: "86%" }
-      ],
-      contactHeading: "Trabajemos juntas.",
-      contactSub: "Disponible para proyectos de localización freelance y puestos a tiempo completo.",
-      emailCta: "Escríbeme", emailLabel: "Correo", phoneLabel: "Teléfono", locLabel: "Ubicación",
-      location: "Viena, Austria"
-    }
-  };
-
-  renderVals() {
-    const c = this.content[this.state.lang];
-    const active = "background:none;border:none;cursor:pointer;padding:2px 2px;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.1em;color:#2F2C27;border-bottom:1px solid #8C4A38";
-    const idle = "background:none;border:none;cursor:pointer;padding:2px 2px;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.1em;color:#a39a87;border-bottom:1px solid transparent";
-    return {
-      ...c,
-      enBtnStyle: this.state.lang === "en" ? active : idle,
-      esBtnStyle: this.state.lang === "es" ? active : idle,
-      setEN: () => this.setState({ lang: "en" }),
-      setES: () => this.setState({ lang: "es" })
-    };
+<script>
+const content = {
+  en: {
+    secAbout: "About", secExp: "Experience", secEdu: "Education",
+    secSkills: "Skills", secLangs: "Languages", secContact: "Contact",
+    eyebrow: "Translator · Localisation Specialist",
+    bio: "Translator (EN/DE › ES/CA), proofreader, and language teacher.",
+    ctaContact: "Get in touch", ctaCV: "Download CV",
+    aboutLead: "Translation, proofreading and language teaching — Spanish, Catalan, English and German.",
+    aboutBody: "I'm a translator, proofreader and language teacher based in Vienna. My working languages are Spanish, Catalan, English and German. I graduated in Translation and Interpreting from Universitat Pompeu Fabra and have continued my studies in Vienna with an extension curriculum within my master's in Romance Studies — in Language Technologies and Specialist Communication, and in Computer Science.",
+    exp: [
+      { role: "Bookseller", org: "Buchkontor · Vienna", date: "Feb 2026 — Jun 2026" },
+      { role: "AI-Powered Video Translator / Dubber", org: "Vision Education · Vienna", date: "Nov 2025 — Mar 2026" },
+      { role: "Bookseller", org: "Tiempo Nuevo · Vienna", date: "Sep 2025 — Jan 2026" },
+      { role: "Exam Supervisor", org: "Centre for Distance Studies · Vienna", date: "Sep 2025 — Present" },
+      { role: "Spanish Language Teaching Assistant", org: "Vienna Board of Education", date: "Oct 2024 — Jun 2025" },
+      { role: "Translator", org: "Heidelberg University · Heidelberg", date: "Apr 2024 — Jul 2024" },
+      { role: "Language Teaching Assistant", org: "GoStudent", date: "Feb 2023 — Apr 2024" }
+    ],
+    edu: [
+      { deg: "MA Romance Studies — Extension Curriculum in Computer Science", org: "FH Campus Wien · Vienna", date: "Mar 2026 — Present" },
+      { deg: "MA Romance Studies — Language Technologies & Technical Communication", org: "University of Vienna", date: "Oct 2025 — Feb 2026" },
+      { deg: "BA Translation & Interpreting", org: "Universitat Pompeu Fabra · Barcelona", date: "Sep 2020 — Jul 2024" },
+      { deg: "Exchange Semester — Translation & Interpreting", org: "Eberhard Karls Universität Tübingen", date: "Sep 2023 — Feb 2024" }
+    ],
+    skills: [
+      { label: "Localisation & CAT Tools", items: ["MateCat", "MemoQ", "SDL Trados", "Aegisub"] },
+      { label: "AI & Multimedia", items: ["ElevenLabs", "HeyGen", "Rask AI", "Voice Synthesis"] },
+      { label: "Design & UI/UX", items: ["Figma", "Canva", "Adobe Photoshop", "Wireframing", "Prototyping"] }
+    ],
+    langs: [
+      { name: "Spanish", level: "Native", pct: "100%" },
+      { name: "Catalan", level: "Native", pct: "100%" },
+      { name: "English", level: "C1", pct: "86%" },
+      { name: "German", level: "C1", pct: "86%" }
+    ],
+    contactHeading: "Let's work together.",
+    contactSub: "Open to freelance localisation projects and full-time roles.",
+    emailCta: "Email me", emailLabel: "Email", phoneLabel: "Phone", locLabel: "Location",
+    location: "Vienna, Austria"
+  },
+  es: {
+    secAbout: "Sobre mí", secExp: "Experiencia", secEdu: "Formación",
+    secSkills: "Competencias", secLangs: "Idiomas", secContact: "Contacto",
+    eyebrow: "Traductora · Especialista en localización",
+    bio: "Traductora (EN/DE › ES/CA), correctora y profesora de idiomas.",
+    ctaContact: "Contactar", ctaCV: "Descargar CV",
+    aboutLead: "Traducción, corrección y enseñanza de idiomas — español, catalán, inglés y alemán.",
+    aboutBody: "Soy traductora, correctora y profesora de idiomas. Vivo en Viena y mis lenguas de trabajo son el español, el catalán, el inglés y el alemán. Me gradué en Traducción e Interpretación por la Universitat Pompeu Fabra y he continuado mi formación en Viena con una extensión curricular dentro del máster en Filología Hispánica — en Tecnologías del Lenguaje y Comunicación Especializada, y en Informática.",
+    exp: [
+      { role: "Librera", org: "Buchkontor · Viena", date: "Feb 2026 — Jun 2026" },
+      { role: "Traductora y dobladora de vídeo con IA", org: "Vision Education · Viena", date: "Nov 2025 — Mar 2026" },
+      { role: "Librera", org: "Tiempo Nuevo · Viena", date: "Sep 2025 — Ene 2026" },
+      { role: "Supervisora de exámenes", org: "Centro de Estudios a Distancia · Viena", date: "Sep 2025 — Actualidad" },
+      { role: "Auxiliar de conversación de español", org: "Consejo Escolar de Viena", date: "Oct 2024 — Jun 2025" },
+      { role: "Traductora", org: "Universidad de Heidelberg · Heidelberg", date: "Abr 2024 — Jul 2024" },
+      { role: "Profesora de idiomas", org: "GoStudent", date: "Feb 2023 — Abr 2024" }
+    ],
+    edu: [
+      { deg: "Máster en Estudios Románicos — Currículo complementario en Informática", org: "FH Campus Wien · Viena", date: "Mar 2026 — Actualidad" },
+      { deg: "Máster en Estudios Románicos — Tecnologías del Lenguaje y Comunicación Técnica", org: "Universidad de Viena", date: "Oct 2025 — Feb 2026" },
+      { deg: "Grado en Traducción e Interpretación", org: "Universitat Pompeu Fabra · Barcelona", date: "Sep 2020 — Jul 2024" },
+      { deg: "Semestre de intercambio — Traducción e Interpretación", org: "Eberhard Karls Universität Tübingen", date: "Sep 2023 — Feb 2024" }
+    ],
+    skills: [
+      { label: "Localización y herramientas TAO", items: ["MateCat", "MemoQ", "SDL Trados", "Aegisub"] },
+      { label: "IA y multimedia", items: ["ElevenLabs", "HeyGen", "Rask AI", "Síntesis de voz"] },
+      { label: "Diseño y UI/UX", items: ["Figma", "Canva", "Adobe Photoshop", "Wireframing", "Prototipado"] }
+    ],
+    langs: [
+      { name: "Español", level: "Nativo", pct: "100%" },
+      { name: "Catalán", level: "Nativo", pct: "100%" },
+      { name: "Inglés", level: "C1", pct: "86%" },
+      { name: "Alemán", level: "C1", pct: "86%" }
+    ],
+    contactHeading: "Trabajemos juntas.",
+    contactSub: "Disponible para proyectos de localización freelance y puestos a tiempo completo.",
+    emailCta: "Escríbeme", emailLabel: "Correo", phoneLabel: "Teléfono", locLabel: "Ubicación",
+    location: "Viena, Austria"
   }
+};
+
+function esc(s){ return String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c])); }
+
+function setLang(lang) {
+  const c = content[lang];
+  document.documentElement.lang = lang;
+
+  document.querySelectorAll('[data-i]').forEach(el => {
+    const key = el.getAttribute('data-i');
+    if (c[key] !== undefined) el.textContent = c[key];
+  });
+
+  document.getElementById('btnEN').classList.toggle('active', lang === 'en');
+  document.getElementById('btnES').classList.toggle('active', lang === 'es');
+
+  // Experience
+  document.getElementById('exp-list').innerHTML = c.exp.map(it => `
+    <div class="row">
+      <span class="date">${esc(it.date)}</span>
+      <div>
+        <div class="title">${esc(it.role)}</div>
+        <div class="org">${esc(it.org)}</div>
+      </div>
+    </div>`).join('');
+
+  // Education
+  document.getElementById('edu-list').innerHTML = c.edu.map(it => `
+    <div class="row">
+      <span class="date">${esc(it.date)}</span>
+      <div>
+        <div class="title">${esc(it.deg)}</div>
+        <div class="org">${esc(it.org)}</div>
+      </div>
+    </div>`).join('');
+
+  // Skills
+  document.getElementById('skills-grid').innerHTML = c.skills.map(g => `
+    <div class="skill-group">
+      <div class="label">${esc(g.label)}</div>
+      <div class="skill-items">
+        ${g.items.map(s => `<div>${esc(s)}</div>`).join('')}
+      </div>
+    </div>`).join('');
+
+  // Languages
+  document.getElementById('langs-grid').innerHTML = c.langs.map(l => `
+    <div>
+      <div class="lang-top">
+        <span class="lang-name">${esc(l.name)}</span>
+        <span class="lang-level">${esc(l.level)}</span>
+      </div>
+      <div class="lang-bar"><div style="width:${esc(l.pct)}"></div></div>
+    </div>`).join('');
 }
+
+setLang('en');
 </script>
 </body>
 </html>
